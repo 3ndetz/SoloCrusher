@@ -12,7 +12,7 @@ namespace AutoTyper
 {
     public class CheckChars
     {
-        // СТРОЧКА в СОЛО = 41 СИМВ.
+        // СТРОЧКА в СОЛО = 41 СИМВ. Оникс царь Опа Опа
         Random rnd = new Random();
         InputSimulator sim = new InputSimulator();
         public void TypeWord(char word, int typedelay, int rndtypeval)
