@@ -68,6 +68,9 @@ namespace AutoTyper
                     sim.Keyboard.Sleep(rndsleep*2);
                     sim.Keyboard.KeyUp(VirtualKeyCode.OEM_3);
                     break;
+                case 'Ё':
+                    KeyType(VirtualKeyCode.OEM_3, true);
+                    break;
 
                 //йцукенгшщзхъфывапролджэячсмитьбю.\/,!"№;%:?*()-=+ЙЦУКЕНГШЩЗХЪФЫВАПРОЛДЖЭЯЧСМИТЬБЮ
 
@@ -1113,7 +1116,9 @@ namespace AutoTyper
                     case 'ё':
                         KeyTypeDown(VirtualKeyCode.OEM_3);
                         break;
-
+                    case 'Ё':
+                        KeyTypeDown(VirtualKeyCode.OEM_3,true);
+                        break;
                     //йцукенгшщзхъфывапролджэячсмитьбю.\/,!"№;%:?*()-=+ЙЦУКЕНГШЩЗХЪФЫВАПРОЛДЖЭЯЧСМИТЬБЮ
 
                     //йцукенгшщзхъ
@@ -1486,12 +1491,14 @@ namespace AutoTyper
                             case 'ё':
                                 KeyTypeUp(VirtualKeyCode.OEM_3);
                                 break;
-
+                            case 'Ё':
+                                KeyTypeUp(VirtualKeyCode.OEM_3);
+                                break;
                             //йцукенгшщзхъфывапролджэячсмитьбю.\/,!"№;%:?*()-=+ЙЦУКЕНГШЩЗХЪФЫВАПРОЛДЖЭЯЧСМИТЬБЮ
 
-                            //йцукенгшщзхъ
-                            #region верхний ряд
-                            case 'й':
+                                //йцукенгшщзхъ
+                                #region верхний ряд
+                                case 'й':
                                 KeyTypeUp(VirtualKeyCode.VK_Q);
                                 break;
                             case 'ц':
