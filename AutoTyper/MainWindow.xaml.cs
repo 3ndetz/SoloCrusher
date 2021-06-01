@@ -79,23 +79,27 @@ namespace AutoTyper
 			TextRange range = new TextRange(rtbEditor.Document.ContentStart, rtbEditor.Document.ContentEnd);
 			string _text = range.Text;
 			int k = -1;int _i = 0;
-			while (_i <= _text.Length - 1)
+			bool divideByLine = false;
+			if (divideByLine)
 			{
-				k++;
-				if ((_text[_i] == '\n') || ((_text[_i] == '\r') && (_text[_i + 1] == '\n')))
+				while (_i <= _text.Length - 1)
 				{
-					k = -1;
-                    if ((_text[_i] == '\r') && (_text[_i + 1] == '\n'))
-                    {
-						_text = _text.Remove(_i,1); _i--;
+					k++;
+					if ((_text[_i] == '\n') || ((_text[_i] == '\r') && (_text[_i + 1] == '\n')))
+					{
+						k = -1;
+						if ((_text[_i] == '\r') && (_text[_i + 1] == '\n'))
+						{
+							_text = _text.Remove(_i, 1); _i--;
+						}
 					}
+					if (k > 39)
+					{
+						_text = _text.Insert(_i, "\n"); k = -1; _i--;
+					}
+					_i++;
+
 				}
-				if (k > 39)
-				{
-					_text = _text.Insert(_i, "\n"); k = -1; _i--;
-				}
-				_i++;
-				
 			}
 			
 			//_text = _text.Replace('\n', ' ');
