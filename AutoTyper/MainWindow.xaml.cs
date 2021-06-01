@@ -74,11 +74,33 @@ namespace AutoTyper
 				range.Load(fileStream, DataFormats.Rtf);
 			}
 		}
-
 		private void textSendBtn_TextSend(object sender, RoutedEventArgs e)
 		{
 			TextRange range = new TextRange(rtbEditor.Document.ContentStart, rtbEditor.Document.ContentEnd);
-			TextInputBox.Text = range.Text;
+			string _text = range.Text;
+			int k = -1;int _i = 0;
+			while (_i <= _text.Length - 1)
+			{
+				k++;
+				if ((_text[_i] == '\n') || ((_text[_i] == '\r') && (_text[_i + 1] == '\n')))
+				{
+					k = -1;
+                    if ((_text[_i] == '\r') && (_text[_i + 1] == '\n'))
+                    {
+						_text = _text.Remove(_i,1); _i--;
+					}
+				}
+				if (k > 39)
+				{
+					_text = _text.Insert(_i, "\n"); k = -1; _i--;
+				}
+				_i++;
+				
+			}
+			
+			//_text = _text.Replace('\n', ' ');
+			//_text = _text.Remove(_text.Length-1, 1);
+			TextInputBox.Text = _text;
 		}
 
 		private void Save_Executed(object sender, ExecutedRoutedEventArgs e)

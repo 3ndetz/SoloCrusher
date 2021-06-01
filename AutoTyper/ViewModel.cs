@@ -271,10 +271,17 @@ namespace AutoTyper
         private void simulateTypingText(string _text, int typingDelay = 100, int startDelay = 1500, int MaxRnd = 250)
         {
             Random rnd = new Random();
-            // Wait the start delay time
-            sim.Keyboard.Sleep(startDelay);
+            _text = _text.Replace('\n', ' ');
+            InputText = _text;
+            //Task.WaitAll();
+            //OutputInfo = _text;
             // Split the text in lines in case it has
             string[] lines = _text.Split(new string[] { "\r\n", "\n" }, StringSplitOptions.None);
+            _text = "";
+            foreach(string line in lines)
+            {
+                _text += line;
+            }
             // Some flags to calculate the percentage
             int allLines = lines.Length;
             int current = 0;
@@ -285,13 +292,11 @@ namespace AutoTyper
             int _chance = 0;
             int typingDelayOld = typingDelay;
             ProgressBarColor = _colorDarkGreen;
-            foreach (string line in lines)
-            {
-                // Split line into characters
-                char[] words = line.ToCharArray();
-                int allWords = words.Length;
-
-                foreach (char word in words)
+            int allWords = _text.Length;
+            sim.Keyboard.Sleep(startDelay);
+            char[] words = _text.ToCharArray();
+                
+            foreach (char word in words)
                 {
                     
                     rndval = rnd.Next(0, MaxRnd);
@@ -336,7 +341,11 @@ namespace AutoTyper
                         }
 
                     }
-                    if (ii > 0) { ii++; OutputRnd += "\t TURBO ON" + typingDelay.ToString(); ProgressBarColor = _colorBlue; }
+                    if (ii > 0) 
+                    { 
+                        ii++; //OutputRnd += "\t TURBO ON" + typingDelay.ToString(); 
+                        ProgressBarColor = _colorBlue; 
+                    }
                     if (ii == 10)
                     {
                         typingDelay = typingDelayOld;
@@ -346,15 +355,6 @@ namespace AutoTyper
                     #endregion
                     
                 }
-
-
-                // Add a new line by pressing ENTER
-                // Return to start of the line in your editor with HOME
-                //sim.Keyboard.KeyPress(VirtualKeyCode.RETURN);
-                //sim.Keyboard.KeyPress(VirtualKeyCode.HOME);
-                // Show the percentage in the console
-                //Console.WriteLine("Percent : {0}", percentage.ToString());
-            }
             ProgressBarColor = _colorGreen;
             ProgressValue = 100;
         }
