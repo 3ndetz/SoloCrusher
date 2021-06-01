@@ -1587,4 +1587,5 @@ namespace AutoTyper
         public ViewModel VM;
         public CheckChars(ViewModel _vm) { VM = _vm; }
     }
+    
 }

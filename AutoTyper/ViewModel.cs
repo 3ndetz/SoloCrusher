@@ -121,8 +121,25 @@ namespace AutoTyper
             //sim.Keyboard.KeyPress(VirtualKeyCode.LCONTROL);
             ////InputText = "Ты пидор.";
         }
-        public string InputText { get; set; }
-        public string InputTypeRand { get; set; }
+
+        string _inputText = " ";
+        public string InputText
+        {
+            get { return _inputText; }
+            set
+            {
+                _inputText = value; OnPropertyChanged("InputText");
+            }
+        }
+        string _inputTypeRand = "250";
+        public string InputTypeRand
+        {
+            get { return _inputTypeRand; }
+            set
+            {
+                _inputTypeRand = value; OnPropertyChanged("InputTypeRand");
+            }
+        }
 
         float _progressValue = 0;
         public float ProgressValue
@@ -174,7 +191,7 @@ namespace AutoTyper
             }
         }
 
-        string _outputInfo = "HelloDebil";
+        string _outputInfo = "Helloil";
         public string OutputInfo
         {
             get { return _outputInfo; }
@@ -183,9 +200,16 @@ namespace AutoTyper
                 _outputInfo = value; OnPropertyChanged("OutputInfo");
             }
         }
-
-        public string InputTypeSpeed { get; set; }
-        string _outputRnd = "HelloDebil";
+        string _inputTypeSpeed = "100";
+        public string InputTypeSpeed
+        {
+            get { return _inputTypeSpeed; }
+            set
+            {
+                _inputTypeSpeed = value; OnPropertyChanged("InputTypeSpeed");
+            }
+        }
+        string _outputRnd = "Helloil";
         public string OutputRnd
         {
             get { return _outputRnd; }
