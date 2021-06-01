@@ -63,9 +63,9 @@
 
     <DockPanel Grid.Row="1" Grid.Column ="1">
       <ToolBar DockPanel.Dock="Top" >
-        <Button Command="ApplicationCommands.Open" Height="16" Width="16">
+        <Button Command="ApplicationCommands.Open" Height="16" Width="16" BorderBrush="Red">
         </Button>
-        <Button Command="ApplicationCommands.Save" Height="16" RenderTransformOrigin="0.5,0.5" Width="18">
+        <Button Command="ApplicationCommands.Save" Height="16" RenderTransformOrigin="0.5,0.5" Width="18" BorderBrush="#FF5DFF00">
           <Button.RenderTransform>
             <TransformGroup>
               <ScaleTransform ScaleX="-1"/>
@@ -77,11 +77,11 @@
           <!--<Image Source="/WpfTutorialSamples;component/Images/disk.png" Width="16" Height="16" />-->
         </Button>
         <Separator />
-        <ToggleButton Command="EditingCommands.ToggleBold" Name="btnBold" Height="16" Width="16">
+        <ToggleButton Command="EditingCommands.ToggleBold" Name="btnBold" Height="16" Width="16" Content="B" FontWeight="Bold">
         </ToggleButton>
-        <ToggleButton Command="EditingCommands.ToggleItalic" Name="btnItalic" Height="16" Width="16">
+        <ToggleButton Command="EditingCommands.ToggleItalic" Name="btnItalic" Height="16" Width="16" Content="I">
         </ToggleButton>
-        <ToggleButton Command="EditingCommands.ToggleUnderline" Name="btnUnderline" Height="16" Width="16">
+        <ToggleButton Command="EditingCommands.ToggleUnderline" Name="btnUnderline" Height="16" Width="16" Content="_" BorderBrush="Black">
         </ToggleButton>
         <Separator />
         <ComboBox Name="cmbFontFamily" Width="150" SelectionChanged="cmbFontFamily_SelectionChanged" />
@@ -89,8 +89,9 @@
       </ToolBar>
       <RichTextBox Name="rtbEditor" SelectionChanged="rtbEditor_SelectionChanged" />
     </DockPanel>
+        <TextBox Name="CompId"  TextWrapping="Wrap" Text="Q" Margin="284,83,9,72" Background="#FFFF9898" FontSize="10" Grid.Row="1"/>
 
 
 
-  </Grid>
+    </Grid>
 </Window>

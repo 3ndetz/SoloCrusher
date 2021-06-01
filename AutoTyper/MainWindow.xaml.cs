@@ -25,13 +25,21 @@ namespace AutoTyper
         public MainWindow()
         {
             InitializeComponent();
-            ViewModel VM = new ViewModel();
-            CheckChars check = new CheckChars(VM);
-            VM.check = check;
-            DataContext = VM;
+			CompId.Text = "ID вашего компьютера: "+GetUniqueId.UniqueHardwaeId;
+			if (GetUniqueId.CheckIdActivation(GetUniqueId.UniqueHardwaeId))
+			{
+				CompId.Background = Brushes.LimeGreen;
+				ViewModel VM = new ViewModel();
+				CheckChars check = new CheckChars(VM);
+				VM.check = check;
+				DataContext = VM;
+            }
+            else
+            {
+				CompId.Background = Brushes.Red;
+			}
 			cmbFontFamily.ItemsSource = Fonts.SystemFontFamilies.OrderBy(f => f.Source);
 			cmbFontSize.ItemsSource = new List<double>() { 8, 9, 10, 11, 12, 14, 16, 18, 20, 22, 24, 26, 28, 36, 48, 72 };
-
 		}
 		//void OnPreviewKeyDown(object sender, KeyEventArgs e)
 		//{
