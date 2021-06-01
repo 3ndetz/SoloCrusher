@@ -6,89 +6,98 @@
         xmlns:local="clr-namespace:AutoTyper"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
-  <Window.CommandBindings>
-    <CommandBinding Command="ApplicationCommands.Open" Executed="Open_Executed" />
-    <CommandBinding Command="ApplicationCommands.Save" Executed="Save_Executed" />
-  </Window.CommandBindings>
-  <Window.InputBindings>
-    <KeyBinding Gesture="Ctrl+1" Command="{Binding MyCommandCmd}"/>
-  </Window.InputBindings>
-  <Grid>
-    <Grid.RowDefinitions>
-      <RowDefinition Height="*"/>
-      <RowDefinition Height="*"/>
-    </Grid.RowDefinitions>
-    <Grid.ColumnDefinitions>
-      <ColumnDefinition Width="*"/>
-      <ColumnDefinition Width="*"/>
+    <Window.CommandBindings>
+        <CommandBinding Command="ApplicationCommands.Open" Executed="Open_Executed" />
+        <CommandBinding Command="ApplicationCommands.Save" Executed="Save_Executed" />
+    </Window.CommandBindings>
+    <Window.InputBindings>
+        <KeyBinding Gesture="Ctrl+1" Command="{Binding MyCommandCmd}"/>
+    </Window.InputBindings>
+    <Grid Margin="10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
 
-    </Grid.ColumnDefinitions>
-    <TextBox HorizontalAlignment="Left" Height="189" TextWrapping="Wrap" Text="{Binding InputText}" VerticalAlignment="Top" Width="252" Margin="10,10,0,0" Grid.Row="1"/>
-    <Button Content="Button" HorizontalAlignment="Left" VerticalAlignment="Top" Width="376" Margin="10,134,0,0" Command="{Binding Button1ClcCmd}" Height="66"/>
-    <TextBlock TextWrapping="Wrap" Text="{Binding OutputRnd}" Margin="10,10,10,147" Background="#FFFF9898" Grid.Column="1" FontSize="20"/>
-    <Label Grid.Column="1" HorizontalAlignment="Left" Margin="10,63,0,0" VerticalAlignment="Top" Height="99" Width="376">
-      <Label.Content>
-        <TextBlock TextWrapping="Wrap" Height="89" Width="366">Ку бро: чтоб 
+        </Grid.ColumnDefinitions>
+        <TextBox Name="TextInputBox" HorizontalAlignment="Left" Height="189" TextWrapping="Wrap" Text="{Binding InputText}" VerticalAlignment="Top" Width="252" Margin="10,10,0,0" Grid.Row="1"/>
+        <TextBlock TextWrapping="Wrap" Text="{Binding OutputRnd}" Margin="10,10,10,147" Background="#FFFF9898" Grid.Column="1" FontSize="20"/>
+        <Label Grid.Column="1" HorizontalAlignment="Left" Margin="10,63,0,0" VerticalAlignment="Top" Height="99" Width="376">
+            <Label.Content>
+                <TextBlock TextWrapping="Wrap" Height="89" Width="366">Ку бро: чтоб 
                     работать ты должен указать в окне ниже текст строкой (ctrl+v), 
                     потом нажать на кнопку СЛЕВА (Button это кнопка тцпица)
                     потом у тебя есть 1 сек чтобы активировать окно для
                     куда тебе будут вводить текст лентяйщик</TextBlock>
-      </Label.Content>
+            </Label.Content>
 
-    </Label>
-    <TextBox Grid.Column="1" Margin="10,162,262,10" TextWrapping="Wrap" Text="{Binding InputTypeSpeed}" FontSize="20"/>
-    <Button Content="STOP" Command="{Binding StopCommandCmd}" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="376" Height="86"/>
-    <TextBox Grid.Column="1" Margin="139,162,133,10" TextWrapping="Wrap" Text="{Binding InputTypeRand}" FontSize="20"/>
-    <Grid Grid.Row="0" Grid.Column="0" >
-      <ProgressBar HorizontalAlignment="Center" Height="30"  VerticalAlignment="Center" Width="376"
-                     Minimum="0" Maximum="100" Value="{Binding ProgressValue}" Margin="0,0,0,-20" Foreground="{Binding ProgressBarColor}"/>
-      <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Text="{Binding OutputInfo}" Margin="0,0,0,-20" 
-                       Foreground="Black">
+        </Label>
+        <TextBox Grid.Column="1" Margin="10,162,262,10" TextWrapping="Wrap" Text="{Binding InputTypeSpeed}" FontSize="20"/>
+        <TextBox Grid.Column="1" Margin="139,162,133,10" TextWrapping="Wrap" Text="{Binding InputTypeRand}" FontSize="20"/>
+        <Grid Grid.Row="0" Grid.Column="0" Margin="10" >
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Grid Grid.Row="1" Grid.Column="0" Margin="15">
+            <ProgressBar Grid.Row="1"
+                     Minimum="0" Maximum="100" Value="{Binding ProgressValue}" Margin="0,0,0,0" Foreground="{Binding ProgressBarColor}"/>
+            <TextBlock Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center" Text="{Binding OutputInfo}" Margin="0,0,0,0" 
+                       Foreground="Black" FontSize="16" TextAlignment="Center">
 
-      </TextBlock>
-    </Grid>
-    <CheckBox IsChecked="{Binding ManualMode}"  Content="Режим тцпицы" Grid.Column="1" HorizontalAlignment="Left" Margin="268,167,0,0" VerticalAlignment="Top"/>
-    <TextBlock TextWrapping="Wrap" Text="{Binding NextWord}" Margin="284,9.6,9.8,146" Background="#FFFF9898" FontSize="20" Grid.Row="1"/>
-    <CheckBox IsChecked="{Binding Shifted}"  Content="С шифтом ?" Grid.Column="1" HorizontalAlignment="Left" Margin="268.2,188,0,0" VerticalAlignment="Top"/>
-    <!--<DockPanel Grid.Column="1" LastChildFill="False" Grid.Row="1" Margin="10,10,14,10">
+            </TextBlock>
+            </Grid>
+            <Button Grid.Row="0" Content="STOP" Command="{Binding StopCommandCmd}"/>
+            <Button Grid.Column="0" Grid.Row="2" Content="Button" 
+                     Command="{Binding Button1ClcCmd}"
+                     />
+        </Grid>
+        <CheckBox IsChecked="{Binding ManualMode}"  Content="Режим тцпицы" Grid.Column="1" HorizontalAlignment="Left" Margin="268,162,0,0" VerticalAlignment="Top"/>
+        <TextBlock TextWrapping="Wrap" Text="{Binding NextWord}" Margin="284,9.6,9.8,146" Background="#FFFF9898" FontSize="20" Grid.Row="1"/>
+        <CheckBox IsChecked="{Binding Shifted}"  Content="С шифтом ?" Grid.Column="1" HorizontalAlignment="Left" Margin="268,177,0,0" VerticalAlignment="Top"/>
+        <!--<DockPanel Grid.Column="1" LastChildFill="False" Grid.Row="1" Margin="10,10,14,10">
 
       <RichTextBox Name="rtbEditor">
         -->
-    <!--RichTextBox.Text-->
-    <!--
+        <!--RichTextBox.Text-->
+        <!--
       </RichTextBox>
                      
       </DockPanel>-->
 
 
-    <DockPanel Grid.Row="1" Grid.Column ="1">
-      <ToolBar DockPanel.Dock="Top" >
-        <Button Command="ApplicationCommands.Open" Height="16" Width="16" BorderBrush="Red">
-        </Button>
-        <Button Command="ApplicationCommands.Save" Height="16" RenderTransformOrigin="0.5,0.5" Width="18" BorderBrush="#FF5DFF00">
-          <Button.RenderTransform>
-            <TransformGroup>
-              <ScaleTransform ScaleX="-1"/>
-              <SkewTransform/>
-              <RotateTransform/>
-              <TranslateTransform/>
-            </TransformGroup>
-          </Button.RenderTransform>
-          <!--<Image Source="/WpfTutorialSamples;component/Images/disk.png" Width="16" Height="16" />-->
-        </Button>
-        <Separator />
-        <ToggleButton Command="EditingCommands.ToggleBold" Name="btnBold" Height="16" Width="16" Content="B" FontWeight="Bold">
-        </ToggleButton>
-        <ToggleButton Command="EditingCommands.ToggleItalic" Name="btnItalic" Height="16" Width="16" Content="I">
-        </ToggleButton>
-        <ToggleButton Command="EditingCommands.ToggleUnderline" Name="btnUnderline" Height="16" Width="16" Content="_" BorderBrush="Black">
-        </ToggleButton>
-        <Separator />
-        <ComboBox Name="cmbFontFamily" Width="150" SelectionChanged="cmbFontFamily_SelectionChanged" />
-        <ComboBox Name="cmbFontSize" Width="50" IsEditable="True" TextBoxBase.TextChanged="cmbFontSize_TextChanged" />
-      </ToolBar>
-      <RichTextBox Name="rtbEditor" SelectionChanged="rtbEditor_SelectionChanged" />
-    </DockPanel>
+        <DockPanel Grid.Row="1" Grid.Column ="1">
+            <ToolBar Height="40" DockPanel.Dock="Top" >
+                <Button x:Name="textSendBtn" Click="textSendBtn_TextSend" Width="32" Height="32">
+                    <Image Source="pack://application:,,,/Resources/calendar.png" />
+                </Button>
+                <Button Command="ApplicationCommands.Open">
+                    <Image Source="pack://application:,,,/Resources/open.png"/>
+                </Button>
+                <Button Command="ApplicationCommands.Save">
+                    <Image Source="pack://application:,,,/Resources/save.png"/>
+                    <!--<Image Source="/WpfTutorialSamples;component/Images/disk.png" Width="16" Height="16" />-->
+                </Button>
+                <Separator />
+                <ToggleButton Command="EditingCommands.ToggleBold" Name="btnBold"  FontWeight="Bold" Width="30">Ж
+                </ToggleButton>
+                <ToggleButton Command="EditingCommands.ToggleItalic" Name="btnItalic" FontStyle="Italic" Width="30">К
+                </ToggleButton>
+                <ToggleButton Command="EditingCommands.ToggleUnderline" Name="btnUnderline" Width="30">
+                    <ToggleButton.Content>
+                        <TextBlock TextDecorations="Underline">Ч</TextBlock>
+                    </ToggleButton.Content>
+                </ToggleButton>
+                <Separator />
+                <ComboBox Name="cmbFontFamily" Width="100" SelectionChanged="cmbFontFamily_SelectionChanged" />
+                <ComboBox Name="cmbFontSize" Width="50" IsEditable="True" TextBoxBase.TextChanged="cmbFontSize_TextChanged" />
+            </ToolBar>
+            <RichTextBox Name="rtbEditor" SelectionChanged="rtbEditor_SelectionChanged" />
+        </DockPanel>
         <TextBox Name="CompId"  TextWrapping="Wrap" Text="Q" Margin="284,83,9,72" Background="#FFFF9898" FontSize="10" Grid.Row="1"/>
 
 

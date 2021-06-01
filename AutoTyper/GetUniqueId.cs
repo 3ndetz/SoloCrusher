@@ -25,6 +25,7 @@ namespace AutoTyper
             "privet",
             "fdsgf",
             "F3-D9-54-2C-0A-2D-3B-5E-78-89-2B-58-C0-B6-02-A4-7D-16-8F-BC-C6-C5-B4-97-6E-99-9B-57-9F-B0-06-25",
+            "35-03-F1-26-3D-63-10-BE-39-00-30-3F-EC-8A-35-A7-27-8A-88-8D-BF-53-A3-7B-FD-4B-2F-8A-EE-2B-9F-9C",
         };
         public static string UniqueHardwaeId
         {

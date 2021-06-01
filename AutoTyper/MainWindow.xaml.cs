@@ -75,6 +75,12 @@ namespace AutoTyper
 			}
 		}
 
+		private void textSendBtn_TextSend(object sender, RoutedEventArgs e)
+		{
+			TextRange range = new TextRange(rtbEditor.Document.ContentStart, rtbEditor.Document.ContentEnd);
+			TextInputBox.Text = range.Text;
+		}
+
 		private void Save_Executed(object sender, ExecutedRoutedEventArgs e)
 		{
 			SaveFileDialog dlg = new SaveFileDialog();
