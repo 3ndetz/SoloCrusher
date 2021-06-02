@@ -73,8 +73,10 @@ namespace AutoTyper
                     break;
                 case '\r':
                     break;
+                case '\0':
+                    break;
                 case '\n':
-                    if (allowEnter) KeyType(VirtualKeyCode.RETURN);
+                    if (allowEnter) KeyType(VirtualKeyCode.RETURN); else KeyType(VirtualKeyCode.SPACE);
                     break;
                 //йцукенгшщзхъфывапролджэячсмитьбю.\/,!"№;%:?*()-=+ЙЦУКЕНГШЩЗХЪФЫВАПРОЛДЖЭЯЧСМИТЬБЮ
 
@@ -662,6 +664,10 @@ namespace AutoTyper
                             e.Handled = VM.EHandled;
                             VM.ViewModel_OnTypeEvent();
                             break;
+                        case Keys.Return:
+                            e.Handled = VM.EHandled;
+                            VM.ViewModel_OnTypeEvent();
+                            break;
                         case Keys.Oem3:
                             e.Handled = VM.EHandled;
                             VM.ViewModel_OnTypeEvent();
@@ -884,6 +890,10 @@ namespace AutoTyper
                             e.Handled = VM.EHandledUp;
                             TypeNextWordUp();
                             break;
+                        case Keys.Return:
+                            e.Handled = VM.EHandledUp;
+                            TypeNextWordUp();
+                            break;
                         case Keys.Oem3:
                             e.Handled = VM.EHandledUp;
                             TypeNextWordUp();
@@ -1101,9 +1111,9 @@ namespace AutoTyper
                 };
             }
         }
-        public void TypeNextWord(bool shift = false, int rndval = 150, bool waiting = false)
+        public void TypeNextWord(int rndval = 100)
         {
-            int rndsleep = rnd.Next(100 ^ (1 / 4) * 6, 100 ^ (1 / 4) * 9);
+            int rndsleep = rnd.Next(rndval ^ (1 / 4) * 6, rndval ^ (1 / 4) * 9);
             const char V = '\\';
             int timeAfterShift = rndsleep/2;
             int timeBeforeShiftEnd = rndsleep / 4;
@@ -1122,6 +1132,24 @@ namespace AutoTyper
                         break;
                     case 'Ё':
                         KeyTypeDown(VirtualKeyCode.OEM_3,true);
+                        break;
+                    case '\0':
+                        //VM.EHandledUp = true;
+                        //VM.EHandled = true;
+                        VM.ViewModel_OnTypeEvent();
+                        VM.ViewModel_OnTypeEvent();
+                        break;
+                    case '\r':
+                        //VM.EHandledUp = true;
+                        //VM.EHandled = true;
+                        VM.ViewModel_OnTypeEvent();
+                        VM.ViewModel_OnTypeEvent();
+                        break;
+                    case '\n':
+                        if (VM.AllowEnter) 
+                        {
+                            KeyTypeDown(VirtualKeyCode.RETURN);
+                        } else KeyTypeDown(VirtualKeyCode.SPACE);
                         break;
                     //йцукенгшщзхъфывапролджэячсмитьбю.\/,!"№;%:?*()-=+ЙЦУКЕНГШЩЗХЪФЫВАПРОЛДЖЭЯЧСМИТЬБЮ
 
@@ -1471,6 +1499,7 @@ namespace AutoTyper
             }
 
         }
+        
         public void TypeNextWordUp()
         {
             //VM.EHandled = false;
@@ -1588,6 +1617,7 @@ namespace AutoTyper
                 }
             }
         }
+        
         public ViewModel VM;
         public CheckChars(ViewModel _vm) { VM = _vm; }
     }

@@ -59,6 +59,7 @@
             <CheckBox IsChecked="{Binding ManualMode}" Margin="4"   Content="Режим тцпицы" Grid.Column="2" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Row="2"/>
             <CheckBox IsChecked="{Binding Shifted}" Margin="4"   Content="С шифтом ?" Grid.Column="2" HorizontalAlignment="Left"  VerticalAlignment="Bottom" Grid.Row="2"/>
             <TextBlock TextWrapping="Wrap" Text="{Binding OutputRnd}" FontSize="20" Grid.Column="1" TextAlignment="Center"/>
+            <CheckBox IsChecked="{Binding AllowEnter}" Margin="4"   Content="Жать Enter ?" Grid.Column="2" HorizontalAlignment="Left" VerticalAlignment="Center" Grid.Row="2"/>
         </Grid>
         <Grid Grid.Row="0" Grid.Column="0" Margin="10" >
             <Grid.RowDefinitions>

@@ -159,7 +159,7 @@ namespace AutoTyper
         bool _stopTyping = false;
 
 
-        bool _shifted = false;
+        bool _shifted = true;
         public bool Shifted
         {
             get { return _shifted; }
@@ -168,7 +168,17 @@ namespace AutoTyper
                 _shifted = value; OnPropertyChanged("Shifted");
             }
         }
+        bool _allowEnter = false;
+        public bool AllowEnter
+        {
+            get { return _allowEnter; }
+            set
+            {
+                _allowEnter = value; OnPropertyChanged("AllowEnter");
+            }
+        }
 
+        
         bool _manualMode = false;
         public bool ManualMode
         {
@@ -277,12 +287,12 @@ namespace AutoTyper
 
             //_text = _text.Replace('\n', ' ');
 
-            string[] lines = _text.Split(new string[] { "\r\n", "\n" }, StringSplitOptions.None);
+            string[] lines = _text.Split(new string[] { "\r\n", "\n" }, StringSplitOptions.RemoveEmptyEntries);
             _text = "";
             foreach(string line in lines)
             {
                 if (lines.Length > 1)
-                    _text += line + " "; else
+                    _text += line + "\n"; else
                     _text += line;
             }
 
@@ -329,7 +339,7 @@ namespace AutoTyper
                     if (_stopTyping) { _stopTyping = false; return; }
 
                     //                    if (ii > 0) OutputRnd += "\t TURBO ON" + typingDelay.ToString();
-                    check.TypeWord(word, typingDelay, rndval);
+                    check.TypeWord(word, typingDelay, rndval, allowEnter: AllowEnter);
                     //sim.Keyboard.TextEntry(word).Sleep(typingDelay+rndval);
                     #region РежимТурбо
                     _chance = rnd.Next(0, 10);
@@ -369,14 +379,13 @@ namespace AutoTyper
         {
             Random rnd = new Random();
             AssistFinished = false;
-            //            _text = _text.Replace('\n', ' ');
-
-            string[] lines = _text.Split(new string[] { "\r\n", "\n" }, StringSplitOptions.None);
+                        //_text = _text.Replace('\r', '\0');
+            string[] lines = _text.Split(new string[] { "\r\n", "\n" }, StringSplitOptions.RemoveEmptyEntries);
             _text = "";
             foreach (string line in lines)
             {
                 if (lines.Length > 1)
-                    _text += line + " ";
+                    _text += line + "\n";
                 else
                     _text += line;
             }
@@ -468,11 +477,16 @@ namespace AutoTyper
                         {
                             if (NextWordNumber == 0) { AssistFinished = false; }
                             //                sim.Keyboard.Sleep(500);
-                            NextWord = _loadedAssistText[NextWordNumber];
-                            check.TypeNextWord();
+
+
+                            if (NextWordNumber < _loadedAssistText.Length)
+                            {
+                                check.TypeNextWord();
+                                NextWord = _loadedAssistText[NextWordNumber];
+                            }
                             //NextWordNumber += 1;
-                            OutputInfo = NextWordNumber.ToString() + " / " + _loadedAssistText.Length.ToString();
-                            ProgressValue = (float)((float)NextWordNumber / (float)_loadedAssistText.Length)*100;
+                            OutputInfo = (NextWordNumber+1).ToString() + " / " + _loadedAssistText.Length.ToString();
+                            ProgressValue = (float)((float)((float)NextWordNumber+(float)1) / (float)_loadedAssistText.Length)*100;
                         }
 
                     }

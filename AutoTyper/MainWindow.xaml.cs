@@ -101,9 +101,9 @@ namespace AutoTyper
 
 				}
 			}
-			
+
 			//_text = _text.Replace('\n', ' ');
-			_text = _text.Remove(_text.Length-1, 1);
+			_text = _text.Remove(_text.Length - 2, 1);
 			TextInputBox.Text = _text;
 		}
 
