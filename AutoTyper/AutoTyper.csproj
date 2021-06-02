@@ -49,6 +49,9 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>donate.ico</ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="KeyboardHookManager, Version=1.1.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\KeyboardHookManager.1.1.0\lib\KeyboardHookManager.dll</HintPath>
@@ -146,6 +149,12 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Resources\donate.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\donate.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="donate.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -14,6 +14,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Microsoft.Win32;
+//using TaskBarTasks;
 
 namespace AutoTyper
 {
@@ -101,7 +102,7 @@ namespace AutoTyper
 
 				}
 			}
-
+			//TaskbarProgress
 			//_text = _text.Replace('\n', ' ');
 			_text = _text.Remove(_text.Length - 2, 1);
 			TextInputBox.Text = _text;
