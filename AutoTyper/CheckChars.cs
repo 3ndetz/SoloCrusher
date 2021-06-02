@@ -15,7 +15,7 @@ namespace AutoTyper
         // СТРОЧКА в СОЛО = 41 СИМВ. Оникс царь Опа Опа Ку бро ! !!! ! my name is
         Random rnd = new Random();
         InputSimulator sim = new InputSimulator();
-        public void TypeWord(char word, int typedelay, int rndtypeval)
+        public void TypeWord(char word, int typedelay, int rndtypeval, bool allowEnter=false)
         {
             
 
@@ -62,16 +62,20 @@ namespace AutoTyper
                     }
 
                     break;
+                case 'Ё':
+                    KeyType(VirtualKeyCode.OEM_3, true);
+                    break;
                 case 'ё':
                     sim.Keyboard.Sleep(rndsleep*2);
                     sim.Keyboard.KeyDown(VirtualKeyCode.OEM_3);
                     sim.Keyboard.Sleep(rndsleep*2);
                     sim.Keyboard.KeyUp(VirtualKeyCode.OEM_3);
                     break;
-                case 'Ё':
-                    KeyType(VirtualKeyCode.OEM_3, true);
+                case '\r':
                     break;
-
+                case '\n':
+                    if (allowEnter) KeyType(VirtualKeyCode.RETURN);
+                    break;
                 //йцукенгшщзхъфывапролджэячсмитьбю.\/,!"№;%:?*()-=+ЙЦУКЕНГШЩЗХЪФЫВАПРОЛДЖЭЯЧСМИТЬБЮ
 
                 //йцукенгшщзхъ

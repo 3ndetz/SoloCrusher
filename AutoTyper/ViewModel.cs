@@ -275,13 +275,15 @@ namespace AutoTyper
             //OutputInfo = _text;
             // Split the text in lines in case it has
 
-            _text = _text.Replace('\n', ' ');
+            //_text = _text.Replace('\n', ' ');
 
             string[] lines = _text.Split(new string[] { "\r\n", "\n" }, StringSplitOptions.None);
             _text = "";
             foreach(string line in lines)
             {
-                _text += line;
+                if (lines.Length > 1)
+                    _text += line + " "; else
+                    _text += line;
             }
 
             //InputText = _text;
@@ -367,13 +369,16 @@ namespace AutoTyper
         {
             Random rnd = new Random();
             AssistFinished = false;
-            _text = _text.Replace('\n', ' ');
+            //            _text = _text.Replace('\n', ' ');
 
             string[] lines = _text.Split(new string[] { "\r\n", "\n" }, StringSplitOptions.None);
             _text = "";
             foreach (string line in lines)
             {
-                _text += line;
+                if (lines.Length > 1)
+                    _text += line + " ";
+                else
+                    _text += line;
             }
             _loadedAssistText = _text.ToCharArray();
             EHandled = true; EHandledUp = true;
