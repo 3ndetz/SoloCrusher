@@ -105,6 +105,7 @@ namespace AutoTyper
 			//_text = _text.Replace('\n', ' ');
 			_text = _text.Remove(_text.Length - 2, 1);
 			TextInputBox.Text = _text;
+			TextInputBox.Focus();
 		}
 
 		private void Save_Executed(object sender, ExecutedRoutedEventArgs e)
