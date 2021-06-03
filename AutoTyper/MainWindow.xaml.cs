@@ -29,6 +29,11 @@ namespace AutoTyper
 			CompId.Text = "ID вашего компьютера: "+GetUniqueId.UniqueHardwaeId;
 			if (GetUniqueId.CheckIdActivation(GetUniqueId.UniqueHardwaeId))
 			{
+				TextActivateR2.Text = "Приложение зарегистрировано!";
+				TextActivateR3.Text = "Больше ничего делать не надо," +
+					" можешь использовать БРОООООООО (спс за 100$ БРОО я их конечно" +
+					" же отправлю на благотварительнасть)";
+				ActivateToolTip.Background = Brushes.LimeGreen;
 				CompId.Background = Brushes.LimeGreen;
 				ViewModel VM = new ViewModel();
 				CheckChars check = new CheckChars(VM);
@@ -37,6 +42,14 @@ namespace AutoTyper
             }
             else
             {
+				TextActivateR1.Text = "здорова тцпица!!!!";
+				TextActivateR2.Text = "Приложение не зарегистрировано!!!!!";
+				TextActivateR3.Text = "пшол уййй отсюда мы закрыты" +
+					" ладно шучу плати автору 100к" +
+					" потом отдавай свою машину квартиру ЖЕНУ " + "и может быть я ради тебя исключительно ПО ДОБРОТЕ ДУШЕВНОЙ" + 
+					"активирую приложуху =) По делу: Если че, этот id свой ты должен мне отправить, после чего я " +
+					"зарегистрирую тебя в нашей НОВЕЙШЕЙ как твой новый батя системе.";
+				ActivateToolTip.Background = Brushes.Red;
 				CompId.Background = Brushes.Red;
 			}
 			cmbFontFamily.ItemsSource = Fonts.SystemFontFamilies.OrderBy(f => f.Source);

@@ -55,6 +55,7 @@
   <ItemGroup>
     <Reference Include="KeyboardHookManager, Version=1.1.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\KeyboardHookManager.1.1.0\lib\KeyboardHookManager.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -74,6 +75,7 @@
     <Reference Include="PresentationFramework" />
     <Reference Include="WindowsInput, Version=1.0.4.0, Culture=neutral, PublicKeyToken=9b287f7dc5073cad, processorArchitecture=MSIL">
       <HintPath>..\packages\InputSimulator.1.0.4.0\lib\net20\WindowsInput.dll</HintPath>
+      <Private>False</Private>
     </Reference>
   </ItemGroup>
   <ItemGroup>
@@ -92,7 +94,6 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="KeyBoardHook.cs" />
     <Compile Include="ViewModel.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
@@ -155,6 +156,12 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="donate.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\KeyboardHookManager.dll" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\WindowsInput.dll" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

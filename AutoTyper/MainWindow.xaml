@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:AutoTyper"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800" Icon="Resources/donate.png">
+        Title="AutoTyper V1.5.0" Height="450" Width="800" Icon="Resources/donate.png">
     <Window.CommandBindings>
         <CommandBinding Command="ApplicationCommands.Open" Executed="Open_Executed" />
         <CommandBinding Command="ApplicationCommands.Save" Executed="Save_Executed" />
@@ -33,9 +33,31 @@
                 <RowDefinition Height="*"/>
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
-            <TextBox Name="TextInputBox" TextWrapping="Wrap" Text="{Binding InputText}" Grid.Column="0" Grid.Row="0" Grid.RowSpan="3" Grid.ColumnSpan="1" />
-            <TextBlock Margin="10,0,0,30" TextWrapping="Wrap" Text="{Binding NextWord}" Background="#FFEEF5FD" FontSize="20"  Grid.Column="1" Grid.Row="0"/>
-            <TextBox x:Name="CompId"  TextWrapping="Wrap" Text="Q" Background="#FFFF9898" FontSize="10" Margin="10,0,0,0" Grid.Column="1" Grid.Row="1" Grid.RowSpan="2"/>
+            <TextBox Name="TextInputBox" TextWrapping="Wrap" Text="{Binding InputText}" Grid.Column="0" Grid.Row="0" Grid.RowSpan="3" Grid.ColumnSpan="1" 
+                     ToolTip="Из этого окна будет производиться печать."
+                     />
+            <TextBlock Margin="10,0,0,30" TextWrapping="Wrap" Text="{Binding NextWord}"
+                       Background="#FFEEF5FD" FontSize="20"  Grid.Column="1" Grid.Row="0"
+                       ToolTip="Следующиц символ в режиме тцпицы"
+                       />
+            <TextBox x:Name="CompId"  TextWrapping="Wrap" Text="Q" Background="#FFFF9898"
+                     FontSize="10" Margin="10,0,0,0" Grid.Column="1" Grid.Row="1" Grid.RowSpan="2" 
+                     ToolTipService.InitialShowDelay="5"  ToolTipService.ShowDuration="100000"
+                     >
+                <TextBox.ToolTip >
+                    <ToolTip
+                             x:Name="ActivateToolTip" Background="#60AA4030" Foreground="White" HasDropShadow="False" MaxWidth="200"
+                    Placement="Bottom">
+                        <StackPanel>
+                            <TextBlock x:Name="TextActivateR1" TextWrapping="Wrap">здарова! это окно регистрации приложухи</TextBlock>
+                            <TextBlock TextAlignment="Center"> </TextBlock>
+                            <TextBlock x:Name="TextActivateR2" TextWrapping="Wrap">Связной: 54990 рублей</TextBlock>
+                            <TextBlock TextAlignment="Center"></TextBlock>
+                            <TextBlock x:Name="TextActivateR3" TextWrapping="Wrap">Ситилинк: 539990 рублей</TextBlock>
+                        </StackPanel>
+                    </ToolTip>
+                </TextBox.ToolTip>
+            </TextBox>
         </Grid>
         <Grid Grid.Row="0" Grid.Column="1" Margin="10,10,10,10">
             <Grid.ColumnDefinitions>
@@ -48,18 +70,33 @@
                 <RowDefinition Height="1.5*"/>
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
+            <TextBlock TextWrapping="Wrap" Text="{Binding OutputRnd}" FontSize="20" Grid.Column="1" TextAlignment="Center"
+                       ToolTip="Це залiпувка (залипалка, тем кто прочитал ЗАЛУПКА = в дурку)"
+                       />
             <Label Grid.Column="0" Grid.ColumnSpan="3" Grid.Row="1">
                 <TextBlock TextWrapping="Wrap" >
                 <Run Text=
                      "Ку бро: чтоб работать ты должен указать в окне ниже текст строкой (ctrl+v), потом нажать на кнопку СЛЕВА (Button это кнопка тцпица) потом у тебя есть 1 сек чтобы активировать окно для куда тебе будут вводить текст лентяйщик"/></TextBlock>
 
             </Label>
-            <TextBox Margin="4" TextWrapping="Wrap" Text="{Binding InputTypeSpeed}" FontSize="20" Grid.Row="2"/>
-            <TextBox Grid.Column="1" Margin="4" TextWrapping="Wrap" Text="{Binding InputTypeRand}" FontSize="20" Grid.Row="2"/>
-            <CheckBox IsChecked="{Binding ManualMode}" Margin="4"   Content="Режим тцпицы" Grid.Column="2" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Row="2"/>
-            <CheckBox IsChecked="{Binding Shifted}" Margin="4"   Content="С шифтом ?" Grid.Column="2" HorizontalAlignment="Left"  VerticalAlignment="Bottom" Grid.Row="2"/>
-            <TextBlock TextWrapping="Wrap" Text="{Binding OutputRnd}" FontSize="20" Grid.Column="1" TextAlignment="Center"/>
-            <CheckBox IsChecked="{Binding AllowEnter}" Margin="4"   Content="Жать Enter ?" Grid.Column="2" HorizontalAlignment="Left" VerticalAlignment="Center" Grid.Row="2"/>
+            <TextBox Margin="4" TextWrapping="Wrap" Text="{Binding InputTypeSpeed}" FontSize="20" Grid.Row="2"
+                     ToolTip="Задержка (меньше = печать быстрее)"
+                     />
+            <TextBox Grid.Column="1" Margin="4" TextWrapping="Wrap" Text="{Binding InputTypeRand}" FontSize="20" Grid.Row="2"
+                     ToolTip="Макс. рандомной задержки (меньше = печать быстрее)"
+                     />
+            <CheckBox IsChecked="{Binding ManualMode}" Margin="4"   Content="Режим тцпицы" Grid.Column="2"
+                      HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Row="2"
+                      ToolTip="По названию не ясно че делает режим ? (Включает моргена)"
+                      />
+            <CheckBox IsChecked="{Binding AllowEnter}" Margin="4"   Content="Жать Enter ?" Grid.Column="2"
+                      HorizontalAlignment="Left" VerticalAlignment="Center" Grid.Row="2"
+                      ToolTip="При переносе строк жмет энтер. Ты тупой ? Это же и так понятно!"
+                      />
+            <CheckBox IsChecked="{Binding Shifted}" Margin="4"   Content="С шифтом ?" Grid.Column="2"
+                      HorizontalAlignment="Left"  VerticalAlignment="Bottom" Grid.Row="2"
+                      ToolTip="Шифтит твой мозг СУКА (работает только в режиме тцпицы)"
+                      />
         </Grid>
         <Grid Grid.Row="0" Grid.Column="0" Margin="10" >
             <Grid.RowDefinitions>
@@ -69,15 +106,20 @@
             </Grid.RowDefinitions>
             <Grid Grid.Row="1" Grid.Column="0" Margin="15">
                 <ProgressBar Grid.Row="1"
-                     Minimum="0" Maximum="100" Value="{Binding ProgressValue}" Margin="0,0,0,0" Foreground="{Binding ProgressBarColor}"/>
+                     Minimum="0" Maximum="100" Value="{Binding ProgressValue}" Margin="0,0,0,0" Foreground="{Binding ProgressBarColor}"
+                             ToolTip="че сюда навел ? пошел нахуй!!!!!!"
+                             />
                 <TextBlock Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center" Text="{Binding OutputInfo}" Margin="0,0,0,0" 
                        Foreground="Black" FontSize="16" TextAlignment="Center">
 
                 </TextBlock>
             </Grid>
-            <Button Grid.Row="0" Content="STOP" Command="{Binding StopCommandCmd}"/>
+            <Button Grid.Row="0" Content="STOP" Command="{Binding StopCommandCmd}"
+                    ToolTip="как думаеш чо делает ета кнопка ? может она СТОПИТ ТВОЕ СЕРДЦЕ АХАХХАХАХ ХАХАХАХ ХАХАХАХА СУКА УПАЛ И ЗДОХ СО СМЕХУ"
+                    />
             <Button Grid.Column="0" Grid.Row="2" Content="Button" 
                      Command="{Binding Button1ClcCmd}"
+                    ToolTip="Как переводится Button ? Если как тр***л, то я BUTTON твою будущую доченьку =)"
                      />
         </Grid>
         <!--<DockPanel Grid.Column="1" LastChildFill="False" Grid.Row="1" Margin="10,10,14,10">
@@ -93,7 +135,9 @@
 
         <DockPanel Grid.Row="1" Grid.Column ="1">
             <ToolBar Height="40" DockPanel.Dock="Top" >
-                <Button x:Name="textSendBtn" Click="textSendBtn_TextSend" Width="32" Height="32">
+                <Button x:Name="textSendBtn" Click="textSendBtn_TextSend" Width="32" Height="32"
+                        ToolTip="При нажатии на THIS BUTTON текст переносится в окно для печати."
+                        >
                     <Image Source="pack://application:,,,/Resources/calendar.png" />
                 </Button>
                 <Button Command="ApplicationCommands.Open">
@@ -117,7 +161,31 @@
                 <ComboBox Name="cmbFontFamily" Width="100" SelectionChanged="cmbFontFamily_SelectionChanged" />
                 <ComboBox Name="cmbFontSize" Width="50" IsEditable="True" TextBoxBase.TextChanged="cmbFontSize_TextChanged" />
             </ToolBar>
-            <RichTextBox Name="rtbEditor" SelectionChanged="rtbEditor_SelectionChanged" />
+            <RichTextBox Name="rtbEditor" SelectionChanged="rtbEditor_SelectionChanged" 
+                         ToolTipService.InitialShowDelay="150"  ToolTipService.ShowDuration="20000"
+                         >
+                <RichTextBox.ToolTip >
+                    <ToolTip
+                             Background="#B2FF2100" Foreground="White" HasDropShadow="False" MaxWidth="400"
+                    Placement="Bottom">
+                        <StackPanel>
+                            <TextBlock TextWrapping="Wrap">Это поле для ввода и форматирования текста, именно сюда ты впервые копируешь текст с упражнения.</TextBlock>
+                            <TextBlock TextAlignment="Center"></TextBlock>
+                            <TextBlock TextWrapping="Wrap">После того как верно введешь текст, жмякай на кнопку :</TextBlock>
+                            <TextBlock TextAlignment="Center"></TextBlock>
+                            <Label Width="32" Height="32">
+                                <Label.Background>
+                                    <ImageBrush ImageSource="pack://application:,,,/Resources/calendar.png"/>
+                                </Label.Background>
+                            </Label>
+
+                            <TextBlock TextWrapping="Wrap">Обрати внимание, что из ЭТОГО поля текст не печатается, очередь на печать берется из поля слева, в которое ты переносишь текст</TextBlock>
+
+                        </StackPanel>
+                    </ToolTip>
+                </RichTextBox.ToolTip>
+
+            </RichTextBox>
         </DockPanel>
 
 

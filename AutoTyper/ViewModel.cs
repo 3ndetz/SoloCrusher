@@ -201,7 +201,7 @@ namespace AutoTyper
             }
         }
 
-        string _outputInfo = "Helloil";
+        string _outputInfo = "HeloBROOOU";
         public string OutputInfo
         {
             get { return _outputInfo; }
@@ -219,7 +219,7 @@ namespace AutoTyper
                 _inputTypeSpeed = value; OnPropertyChanged("InputTypeSpeed");
             }
         }
-        string _outputRnd = "Helloil";
+        string _outputRnd = "HeloBROOOU";
         public string OutputRnd
         {
             get { return _outputRnd; }
