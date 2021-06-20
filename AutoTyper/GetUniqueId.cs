@@ -28,6 +28,7 @@ namespace AutoTyper
             "35-03-F1-26-3D-63-10-BE-39-00-30-3F-EC-8A-35-A7-27-8A-88-8D-BF-53-A3-7B-FD-4B-2F-8A-EE-2B-9F-9C",
             "A6-40-96-ED-AB-C3-F0-21-A4-C4-EF-A5-48-C4-3E-45-A4-BC-A1-CE-EF-65-7A-F2-3A-C0-D5-56-73-0C-28-E6",
             "51-76-4A-4A-59-24-F5-65-3F-17-B9-C5-8E-DB-9D-0B-54-B9-F4-C8-B2-E5-80-9E-70-BB-BB-40-7C-82-4D-4B",
+            "D8-B1-50-FE-F8-E0-F5-1F-16-65-5E-81-31-91-62-61-DE-79-87-B5-D5-B7-16-C8-8F-C9-00-79-2C-71-8C-3C",
         };
         public static string UniqueHardwaeId
         {
