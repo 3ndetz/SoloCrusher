@@ -23,7 +23,8 @@ namespace AutoTyper
         {
             "daun",
             "privet",
-            "fdsgf",
+            "fdsgffdf",
+            "B2-29-91-A4-C3-A5-C4-1A-ED-FD-19-7E-E1-55-AA-A4-4D-6A-9B-A4-F2-75-28-91-23-9F-C0-DD-99-98-10-BB",
             "F3-D9-54-2C-0A-2D-3B-5E-78-89-2B-58-C0-B6-02-A4-7D-16-8F-BC-C6-C5-B4-97-6E-99-9B-57-9F-B0-06-25",
             "35-03-F1-26-3D-63-10-BE-39-00-30-3F-EC-8A-35-A7-27-8A-88-8D-BF-53-A3-7B-FD-4B-2F-8A-EE-2B-9F-9C",
             "A6-40-96-ED-AB-C3-F0-21-A4-C4-EF-A5-48-C4-3E-45-A4-BC-A1-CE-EF-65-7A-F2-3A-C0-D5-56-73-0C-28-E6",
