@@ -71,12 +71,10 @@
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
             <TextBlock TextWrapping="Wrap" Text="{Binding OutputRnd}" FontSize="20" Grid.Column="1" TextAlignment="Center"
-                       ToolTip="Це залiпувка (залипалка, тем кто прочитал ЗАЛУПКА = в дурку)"
+                       ToolTip="залипалка"
                        />
             <Label Grid.Column="0" Grid.ColumnSpan="3" Grid.Row="1">
-                <TextBlock TextWrapping="Wrap" >
-                <Run Text=
-                     "Ку бро: чтоб работать ты должен указать в окне ниже текст строкой (ctrl+v), потом нажать на кнопку СЛЕВА (Button это кнопка тцпица) потом у тебя есть 1 сек чтобы активировать окно для куда тебе будут вводить текст лентяйщик"/></TextBlock>
+                <TextBlock TextWrapping="Wrap" Text="Ку бро: чтоб работать ты должен указать в окне ниже текст строкой (ctrl+v), потом нажать на кнопку СЛЕВА (Button это кнопка) потом у тебя есть 1 сек чтобы активировать окно для куда тебе будут вводить текст лентяйщик" />
 
             </Label>
             <TextBox Margin="4" TextWrapping="Wrap" Text="{Binding InputTypeSpeed}" FontSize="20" Grid.Row="2"
@@ -87,15 +85,15 @@
                      />
             <CheckBox IsChecked="{Binding ManualMode}" Margin="4"   Content="Режим тцпицы" Grid.Column="2"
                       HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Row="2"
-                      ToolTip="По названию не ясно че делает режим ? (Включает моргена)"
+                      ToolTip="Что делает эта галка? (Включает моргена)"
                       />
             <CheckBox IsChecked="{Binding AllowEnter}" Margin="4"   Content="Жать Enter ?" Grid.Column="2"
                       HorizontalAlignment="Left" VerticalAlignment="Center" Grid.Row="2"
-                      ToolTip="При переносе строк жмет энтер. Ты тупой ? Это же и так понятно!"
+                      ToolTip="При переносе строк жмет энтер. Как неочевидно!"
                       />
             <CheckBox IsChecked="{Binding Shifted}" Margin="4"   Content="С шифтом ?" Grid.Column="2"
                       HorizontalAlignment="Left"  VerticalAlignment="Bottom" Grid.Row="2"
-                      ToolTip="Шифтит твой мозг СУКА (работает только в режиме тцпицы)"
+                      ToolTip="Шифтит твой мозг (работает только в режиме тцпицы)"
                       />
         </Grid>
         <Grid Grid.Row="0" Grid.Column="0" Margin="10" >
@@ -107,7 +105,7 @@
             <Grid Grid.Row="1" Grid.Column="0" Margin="15">
                 <ProgressBar Grid.Row="1"
                      Minimum="0" Maximum="100" Value="{Binding ProgressValue}" Margin="0,0,0,0" Foreground="{Binding ProgressBarColor}"
-                             ToolTip="че сюда навел ? пошел нахуй!!!!!!"
+                             ToolTip="че сюда навел ? пошел ***..."
                              />
                 <TextBlock Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center" Text="{Binding OutputInfo}" Margin="0,0,0,0" 
                        Foreground="Black" FontSize="16" TextAlignment="Center">
@@ -115,11 +113,11 @@
                 </TextBlock>
             </Grid>
             <Button Grid.Row="0" Content="STOP" Command="{Binding StopCommandCmd}"
-                    ToolTip="как думаеш чо делает ета кнопка ? может она СТОПИТ ТВОЕ СЕРДЦЕ АХАХХАХАХ ХАХАХАХ ХАХАХАХА СУКА УПАЛ И ЗДОХ СО СМЕХУ"
+                    ToolTip="как думаеш чо делает ета кнопка ? может она СТОПИТ ТВОЕ СЕРДЦЕ АХАХХАХАХ ХАХАХАХ ХАХАХАХА УПАЛ И ЗДОХ СО СМЕХУ"
                     />
             <Button Grid.Column="0" Grid.Row="2" Content="Button" 
                      Command="{Binding Button1ClcCmd}"
-                    ToolTip="Как переводится Button ? Если как тр***л, то я BUTTON твою будущую доченьку =)"
+                    ToolTip="Как переводится Button ? Если как ******, то я BUTTON твою девушку"
                      />
         </Grid>
         <!--<DockPanel Grid.Column="1" LastChildFill="False" Grid.Row="1" Margin="10,10,14,10">

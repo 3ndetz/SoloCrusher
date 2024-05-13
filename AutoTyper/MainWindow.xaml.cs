@@ -27,28 +27,45 @@ namespace AutoTyper
         {
             InitializeComponent();
 			CompId.Text = "ID вашего компьютера: "+GetUniqueId.UniqueHardwaeId;
-			if (GetUniqueId.CheckIdActivation(GetUniqueId.UniqueHardwaeId))
-			{
-				TextActivateR2.Text = "Приложение зарегистрировано!";
-				TextActivateR3.Text = "Больше ничего делать не надо," +
-					" можешь использовать БРОООООООО (спс за 100$ БРОО я их конечно" +
-					" же отправлю на благотварительнасть)";
-				ActivateToolTip.Background = Brushes.LimeGreen;
-				CompId.Background = Brushes.LimeGreen;
-				ViewModel VM = new ViewModel();
-				CheckChars check = new CheckChars(VM);
-				VM.check = check;
-				DataContext = VM;
-            }
-            else
+            var randomInteger = new Random();
+			int nnn = randomInteger.Next(0, 200);
+			bool lol = (nnn > 100);
+            if (true)
             {
-				TextActivateR1.Text = "здорова тцпица!!!!";
+
+                TextActivateR2.Text = "Приложение зарегистрировано!";
+                TextActivateR3.Text = "Больше ничего делать не надо," +
+                    " можешь использовать БРОООООООО (спс за 100$ БРОО я их конечно" +
+                    " же отправлю на благотворительНасть)";
+                ActivateToolTip.Background = Brushes.LimeGreen;
+                CompId.Background = Brushes.LimeGreen;
+                ViewModel VM = new ViewModel();
+                CheckChars check = new CheckChars(VM);
+                VM.check = check;
+                DataContext = VM;
+                if (lol&&!GetUniqueId.CheckIdActivation(GetUniqueId.UniqueHardwaeId))
+                {
+                    TextActivateR1.Text = "здорова ботик!!!!";
+                    TextActivateR2.Text = "Приложение не зарегистрировано!!!!!";
+                    TextActivateR3.Text = "мы закрыты" +
+                        " ладно шучу плати автору 100к" +
+                        " потом отдавай свою машину квартиру ЖЕНУ " + "и может быть я ради тебя исключительно ПО ДОБРОТЕ ДУШЕВНОЙ" +
+                        "активирую приложуху =) По делу: это я прикалывался над придумыванием своей защиты приложения " +
+                        "а вообще опен сурс залог успеха!!! Против лома нет приёма, пираты рулят!!!!";
+                    ActivateToolTip.Background = Brushes.Red;
+                    CompId.Background = Brushes.Red;
+                }
+            }
+
+            if (false)
+            {
+				TextActivateR1.Text = "здорова ботик!!!!";
 				TextActivateR2.Text = "Приложение не зарегистрировано!!!!!";
-				TextActivateR3.Text = "пшол уййй отсюда мы закрыты" +
+				TextActivateR3.Text = "мы закрыты" +
 					" ладно шучу плати автору 100к" +
 					" потом отдавай свою машину квартиру ЖЕНУ " + "и может быть я ради тебя исключительно ПО ДОБРОТЕ ДУШЕВНОЙ" + 
-					"активирую приложуху =) По делу: Если че, этот id свой ты должен мне отправить, после чего я " +
-					"зарегистрирую тебя в нашей НОВЕЙШЕЙ как твой новый батя системе.";
+					"активирую приложуху =) По делу: это я прикалывался над придумыванием своей защиты приложения " +
+					"а вообще опен сурс залог успеха!!! Против лома нет приёма, пираты рулят!!!!";
 				ActivateToolTip.Background = Brushes.Red;
 				CompId.Background = Brushes.Red;
 			}

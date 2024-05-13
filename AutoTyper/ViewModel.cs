@@ -119,7 +119,7 @@ namespace AutoTyper
             //sim.Keyboard.KeyPress(VirtualKeyCode.RETURN);
             //// Press Left CTRL button
             //sim.Keyboard.KeyPress(VirtualKeyCode.LCONTROL);
-            ////InputText = "Ты пидор.";
+            ////InputText = "Ты ****.";
         }
 
         string _inputText = " ";

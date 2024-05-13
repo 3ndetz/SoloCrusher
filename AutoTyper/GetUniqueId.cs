@@ -21,7 +21,7 @@ namespace AutoTyper
         }
         public static List<string> AllowedIds { get; set; } = new List<string>
         {
-            "daun",
+            "lol",
             "privet",
             "fdsgffdfhihi",
             "B2-29-91-A4-C3-A5-C4-1A-ED-FD-19-7E-E1-55-AA-A4-4D-6A-9B-A4-F2-75-28-91-23-9F-C0-DD-99-98-10-BB",
